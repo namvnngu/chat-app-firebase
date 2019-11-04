@@ -9,8 +9,7 @@ class MessageContentMobile extends React.Component {
         return(
             <div className="content-mobile-container">
                 <div className="header-mobile">
-                    <h1 className="user-name-mobile">Nam Nguyen</h1>
-                    <button className="toggle-board-button" onClick={() => {this.toggleBoard()}}><span>&#9776;</span></button>
+                    <h1 className="user-name-mobile">Via Nguyen</h1>
                 </div>
             </div>
         )

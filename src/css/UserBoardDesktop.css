@@ -4,9 +4,17 @@
     background: #fff;
     padding: 0;
     margin: 0;
-    overflow: auto;
+    overflow-x: auto;
+
+    /* IE 10+ / Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
 }
 
+/* Safari and Chrome */
+.user-board::-webkit-scrollbar { 
+    display: none;  
+}
 
 .user-name {
     height: 72px;

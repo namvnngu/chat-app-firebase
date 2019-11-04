@@ -24,6 +24,14 @@ class UserBoardDesktop extends React.Component {
                 <p className="friend-name">David Nguyen</p>
                 <p className="friend-name">David Nguyen</p>
                 <p className="friend-name">David Nguyen</p>
+                <p className="friend-name">David Nguyen</p>
+                <p className="friend-name">David Nguyen</p>
+                <p className="friend-name">David Nguyen</p>
+                <p className="friend-name">David Nguyen</p>
+                <p className="friend-name">David Nguyen</p>
+                <p className="friend-name">David Nguyen</p>
+                <p className="friend-name">David Nguyen</p>
+                <p className="friend-name">David Nguyen</p>
                 <p className="log-out col-sm-3">Log Out</p>
             </div>
         )

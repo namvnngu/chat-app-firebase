@@ -28,6 +28,23 @@ class UserBoardMobile extends React.Component {
                 </div>
                 <p className="friend-name-mobile active-friend">Via Nguyen</p>
                 <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
+                <p className="friend-name-mobile">David Nguyen</p>
                 
                 <p className="log-out-mobile">Log Out</p>
             </div>
