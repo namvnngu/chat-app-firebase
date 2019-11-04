@@ -39,7 +39,7 @@ class SiSuForm extends React.Component {
                     ></input>
 
                     <div className="account">
-                        <Link to='/message-chat'><p>{this.props.newAccount}</p></Link>
+                        <Link to='/sign-up'><p>{this.props.newAccount}</p></Link>
                         <div className="google-account">
                             <a href="https://www.google.com/"><p>{this.props.googleEntry} with Google Account</p></a>
                             <img src={GoogleImage} className="google-image" alt="Google Icon"></img>
