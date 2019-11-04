@@ -1,0 +1,52 @@
+.user-board {
+    position: relative;
+    height: 100%;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+
+
+.user-name {
+    height: 72px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: rgb(129, 207, 206);
+    color: #fff;
+    font-size: 35px;
+
+    position: sticky;
+    top: 0;
+    margin: 0;  
+}
+
+.friend-name {
+    margin: 0;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.active-friend {
+    background: #EAE5E5;
+}
+
+.log-out {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 43px;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    font-size:16px;
+    font-weight: bold;
+    box-shadow: -1px -1px 2px 2px rgba(0, 0, 0, 0.25);
+    background: #fff;
+}

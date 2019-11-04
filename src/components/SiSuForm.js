@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/SiSuForm.css';
+import { Link } from 'react-router-dom';
 import GoogleImage from '../static/google.svg';
 
 
@@ -38,9 +39,9 @@ class SiSuForm extends React.Component {
                     ></input>
 
                     <div className="account">
-                        <p>{this.props.newAccount}</p>
+                        <Link to='/sign-up'><p>{this.props.newAccount}</p></Link>
                         <div className="google-account">
-                            <p>{this.props.googleEntry} with Google Account</p>
+                            <a href="https://www.google.com/"><p>{this.props.googleEntry} with Google Account</p></a>
                             <img src={GoogleImage} className="google-image" alt="Google Icon"></img>
                         </div>
                     </div>

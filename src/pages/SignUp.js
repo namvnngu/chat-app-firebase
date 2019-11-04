@@ -12,7 +12,7 @@ class SignUn extends React.Component {
                     usernamePlaceholder="Choose a new username..."
                     passwordPlaceholder="Choose a new password..."
                     submitButton="SIGN UP"
-                    newAccount=" "
+                    newAccount=""
                     googleEntry="Sign up"
                 />
             </div>
