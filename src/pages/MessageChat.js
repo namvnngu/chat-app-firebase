@@ -5,6 +5,7 @@ import MediaQuery from 'react-responsive';
 import UserBoardDesktop from '../components/UserBoardDesktop';
 import UserBoardMobile from '../components/UserBoardMobile';
 import MessageContentDesktop from '../components/MessageContentDesktop';
+import MessageContentMobile from '../components/MessageContentMobile';
 import '../css/MessageChat.css'
 
 class MessageChat extends React.Component {
@@ -17,6 +18,7 @@ class MessageChat extends React.Component {
                 </MediaQuery>
                 <MediaQuery maxWidth={1100}>
                     <UserBoardMobile/>
+                    <MessageContentMobile/>
                 </MediaQuery>
             </div>
         )

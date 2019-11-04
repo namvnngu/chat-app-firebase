@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { directive } from '@babel/types';
+// import { Link } from 'react-router-dom';
+// import { directive } from '@babel/types';
 import '../css/UserBoardDesktop.css';
 
 
