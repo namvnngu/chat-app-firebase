@@ -3,7 +3,6 @@
     background: #fff;
     position: relative;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: all 0.01s ease;
     overflow-y: scroll;
     z-index: 10;
 
@@ -31,17 +30,27 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.toggle-board-button {
-    position: fixed;    
-    right: 0;
+.toggle-board-button-close {
+    font-weight: bold;
     height: 50px;
     width: 50px;
     font-size: 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background: rgb(202, 231, 231);
-    color: #fff;
+    background: none;
+    color: rgb(116, 108, 108);
+}
+
+.toggle-board-button-open {
+    position: fixed;   
+    right: 0px;
+    top: 0;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
 .user-name-mobile {

@@ -24,8 +24,9 @@ class UserBoardMobile extends React.Component {
             >
                 <div className="header-mobile-sideboard">
                     <h1 className="user-name-mobile">Nam Nguyen</h1>
-                    <button className="toggle-board-button" onClick={() => {this.toggleBoard()}}><span><i class="fas fa-bars"></i></span></button>
+                <button className="toggle-board-button-close" onClick={() => {this.toggleBoard()}}><span>&#9746;</span></button>
                 </div>
+                <button className="toggle-board-button-open" onClick={() => {this.toggleBoard()}}><span></span></button>
                 <p className="friend-name-mobile active-friend">Via Nguyen</p>
                 <p className="friend-name-mobile">David Nguyen</p>
                 <p className="friend-name-mobile">David Nguyen</p>

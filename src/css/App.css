@@ -1,9 +1,13 @@
 /* z-index 
-UserBoardMobile: 10 */
+UserBoardMobile: 10;
+MessageContentMobile:
+    header-mobile: 5,
+    message-container-mobile: 0,
+*/
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
 html, body {
