@@ -4,5 +4,5 @@
 
 #### All following frameworks/technologies are implemented in this project:
 - Front-end: React (Basic)
-- Back-end/Database: Firebase
+- Back-end/Database: Firebase, Node.js
 - Hosting: Firebase

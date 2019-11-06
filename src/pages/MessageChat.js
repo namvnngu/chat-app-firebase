@@ -12,11 +12,11 @@ class MessageChat extends React.Component {
     render() {
         return (
             <div className="message-chat-container row">
-                <MediaQuery minWidth={1100} >
+                <MediaQuery minWidth={725} >
                     <UserBoardDesktop/>
                     <MessageContentDesktop/>
                 </MediaQuery>
-                <MediaQuery maxWidth={1100}>
+                <MediaQuery maxWidth={725}>
                     <UserBoardMobile/>
                     <MessageContentMobile/>
                 </MediaQuery>
