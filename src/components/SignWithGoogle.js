@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/SiSuForm.css';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../components/Firebase';
 import GoogleImage from '../static/google.svg';
 
@@ -9,20 +9,20 @@ class SignWithGoogleBase extends React.Component {
         super(props);
 
         this.sate = {error: null};
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
-    onSubmit = event => {
-        event.preventDefault()
-        this.props.firebase 
-            .doSignInWithGoogle()
-            .then(() => {
-                this.setState({ error: null});
-                this.props.history.push('/message-chat')
-            })
-            .catch(error => {
-                this.setState({error})
-            })
-
+    onSubmit = async (event) => {
+        try {
+            await this.props.firebase 
+                .doSignInWithGoogle()
+                .then(() => {
+                    this.setState({ error: null});
+                    this.props.history.push('/message-chat')
+                })
+        } catch (error) {
+            this.setState({error})
+        }
     }
 
     render() {

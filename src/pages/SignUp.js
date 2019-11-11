@@ -3,7 +3,9 @@ import '../css/SiSuForm.css';
 import Header from '../components/Header';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../components/Firebase';
-import SignWithGoogle from '../components/SignWithGoogle'
+// import SignWithGoogle from '../components/SignWithGoogle'
+
+import GoogleLogin from 'react-google-login';
 
 const INITIAL_STATE = {
     username: '',
@@ -16,7 +18,6 @@ class SignUpFormBase extends React.Component {
         super(props);
 
         this.state = { ...INITIAL_STATE };
-
     }
 
     onSubmit = (event) => {
@@ -25,7 +26,7 @@ class SignUpFormBase extends React.Component {
 
         this.props.firebase
             .doCreateUserWithEmailAndPassword(email, password)
-            .then(authUser => {
+            .then(() => {
                 this.setState({...INITIAL_STATE})
                 this.props.history.push('/message-chat')
             })
@@ -102,12 +103,23 @@ class SignUpFormBase extends React.Component {
 
 const SigUpForm = withRouter(withFirebase(SignUpFormBase));
 
+const responseGoogle = (response) => {
+    console.log(response);
+}
+
 const SignUp = () => (
     <div className="page-container">
         <Header/>
         <div className="form-container">
             <SigUpForm/>
-            <SignWithGoogle/>
+            {/* <SignWithGoogle/> */}
+            <GoogleLogin
+                clientId="308029801571-i21gtblk0irdpvq2ltqtju471eals2eh.apps.googleusercontent.com"
+                buttonText="LOGIN WITH GOOGLE"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                className="google-login-button"
+            />
         </div>
     </div>
 )
