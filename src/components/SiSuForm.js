@@ -24,7 +24,7 @@ class SiSuForm extends React.Component {
 
                     <label className="form-label label-password">Password</label>
                     <input 
-                        type="text" 
+                        type="password" 
                         name="password" 
                         placeholder={this.props.passwordPlaceholder}
                         className="input-password"

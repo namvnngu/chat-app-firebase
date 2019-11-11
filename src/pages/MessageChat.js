@@ -1,5 +1,4 @@
 import React from 'react';
-import { directive } from '@babel/types';
 import MediaQuery from 'react-responsive';
 
 import UserBoardDesktop from '../components/UserBoardDesktop';

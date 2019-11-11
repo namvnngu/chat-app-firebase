@@ -47,7 +47,7 @@ class MessageContentDesktop extends React.Component {
                             id="message-input-desktop"
                         ></input>
                         <div className="button-group-desktop">
-                            <button className="input-area-desktop"><i class="fas fa-palette"></i></button>
+                            <button className="input-area-desktop"><i className="fas fa-palette"></i></button>
                             <input 
                                 className="send-button-desktop"
                                 type="submit"

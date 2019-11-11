@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/UserBoardMobile.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class UserBoardMobile extends React.Component {
     constructor(props) {
