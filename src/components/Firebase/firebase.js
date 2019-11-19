@@ -10,6 +10,7 @@ const firebaseConfig = {
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_APP_ID,
     measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+    clientId: process.env.CLIENT_ID
 };
 
 class Firebase {
@@ -18,7 +19,7 @@ class Firebase {
 
         this.auth = app.auth();
 
-        this.googleProvider = new app.auth.GithubAuthProvider();
+        this.googleProvider = new app.auth.GoogleAuthProvider();
     }
 
     doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);

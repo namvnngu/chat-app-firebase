@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import { directive } from '@babel/types';
+import { Route, Switch, BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 // Pages 
 import SignUp from '../src/pages/SignUp';
@@ -9,21 +8,38 @@ import MessageChat from '../src/pages/MessageChat';
 
 import './css/App.css'
 
-class App extends React.Component {
-  render() {
-    return(
-      <div className="page">
-        <Router>
+import { withAuthentication, AuthUserContext } from './components/Session';
+
+const SwitchRoute = () => (
           <Switch>
             <Route exact path="/" component={SignIn}></Route>
             <Route path="/sign-in" component={SignIn}></Route>
             <Route path="/sign-up" component={SignUp}></Route>
             <Route path="/message-chat" component={MessageChat}></Route>
           </Switch>
+)
+
+const RedirectRoute = () => (
+    <Switch>
+        <Redirect to="/message-chat"/>    
+    </Switch>
+)
+
+class App extends React.Component {
+  render() {
+    return(
+      <div className="page">
+        <Router>
+            <SwitchRoute/>
+            <AuthUserContext.Consumer>
+                {authUser => 
+                    authUser? <RedirectRoute/> : <SwitchRoute/>
+                }
+            </AuthUserContext.Consumer>
         </Router>
       </div>
     )
   }
 }
 
-export default App;
+export default withAuthentication(App);

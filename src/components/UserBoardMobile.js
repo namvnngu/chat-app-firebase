@@ -1,12 +1,24 @@
 import React from 'react';
 import '../css/UserBoardMobile.css'
+import { withFirebase }from './Firebase';
+
+import { withRouter } from 'react-router-dom';
 
 class UserBoardMobile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {boardWidth: 325};
+   
+        this.redirectSignOut = this.redirectSignOut.bind(this);
     }
     
+    redirectSignOut() {
+        this.props.firebase.doSignOut()
+            .then(() => {
+                this.props.history.push('/sign-in')
+            })
+    }
+
     toggleBoard() {
         if(this.state.boardWidth === 325) {
             this.setState({boardWidth: 0})
@@ -46,10 +58,10 @@ class UserBoardMobile extends React.Component {
                 <p className="friend-name-mobile">David Nguyen</p>
                 <p className="friend-name-mobile">David Nguyen</p>
                 
-                <p className="log-out-mobile">Log Out</p>
+                <p className="log-out-mobile" onClick={this.redirectSignOut}>Log Out</p>
             </div>
         )
     }
 }
 
-export default UserBoardMobile;
+export default withRouter(withFirebase(UserBoardMobile));

@@ -21,7 +21,7 @@ class MessageContentMobile extends React.Component {
                             className="message-input-mobile"
                         ></input>
                         <div className="button-group-mobile">
-                            <button className="input-area-mobile"><i class="fas fa-palette"></i></button>
+                            <button className="input-area-mobile"><i className="fas fa-palette"></i></button>
                             <button className="send-button-mobile">Send</button>
                         </div>
                     </div>
