@@ -11,6 +11,7 @@ class UserBoardDesktop extends React.Component {
         super(props)
 
         this.redirectSignOut = this.redirectSignOut.bind(this);
+        this.state = { 'name': null, "userList": [] }
     }
     redirectSignOut() {
         this.props.firebase.doSignOut()
@@ -18,33 +19,36 @@ class UserBoardDesktop extends React.Component {
                 this.props.history.push('/sign-in')
             })
     }
+    
+    componentDidMount() {
+        // Current User
+        let currentUserID = this.props.firebase.currentUser();
+        this.props.firebase.user(currentUserID).once('value', (snapshot) => {
+            let name = snapshot.val().username;
+            this.setState({"name": name})
+        })
+
+        // User List
+        this.props.firebase.users().once('value', (snapshot) => {
+            let arrayUser = []
+            snapshot.forEach((childSnapshot) => {
+                let name = childSnapshot.val().username;
+                arrayUser.push(name);
+            })
+            this.setState({"userList": arrayUser})
+            console.log(this.state.userList)
+        })
+            
+    }
+
     render() {
         return (
             <div className="user-board col-sm-3">
-                <h1 className="user-name">Nam Nguyen</h1>
+                <h1 className="user-name">{this.state.name}</h1>
                 <p className="friend-name active-friend">Via Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
-                <p className="friend-name">David Nguyen</p>
+                {this.state.userList.map((user, index) => (
+                    <p key={index}className="friend-name">{user}</p>
+                ))}
                 <button className="log-out col-sm-3" onClick={this.redirectSignOut}>Log Out</button>
             </div>
         )

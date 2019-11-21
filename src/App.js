@@ -15,12 +15,13 @@ const SwitchRoute = () => (
             <Route exact path="/" component={SignIn}></Route>
             <Route path="/sign-in" component={SignIn}></Route>
             <Route path="/sign-up" component={SignUp}></Route>
-            <Route path="/message-chat" component={MessageChat}></Route>
+            <Redirect to="/sign-in" />
           </Switch>
 )
 
 const RedirectRoute = () => (
     <Switch>
+        <Route path="/message-chat" component={MessageChat} />
         <Redirect to="/message-chat"/>    
     </Switch>
 )
@@ -30,7 +31,6 @@ class App extends React.Component {
     return(
       <div className="page">
         <Router>
-            <SwitchRoute/>
             <AuthUserContext.Consumer>
                 {authUser => 
                     authUser? <RedirectRoute/> : <SwitchRoute/>
