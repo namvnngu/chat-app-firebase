@@ -1,12 +1,16 @@
 import React from 'react';
 import '../css/MessageContentDesktop.css';
-import { directive } from '@babel/types';
+// import { directive } from '@babel/types';
+import { withFirebase } from './Firebase';
 
 class MessageContentDesktop extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {value : ""};
+        this.state = {
+            value : "",
+            name: null,
+        };
         this.message = "";
 
         this.handleChange = this.handleChange.bind(this);
@@ -28,11 +32,29 @@ class MessageContentDesktop extends React.Component {
         event.preventDefault();
     }
 
+    componentDidMount() {
+        this.listener = this.props.firebase.auth.onAuthStateChanged((authUser) => {
+            if(authUser) {
+                
+                // Current User
+                let currentUserID = this.props.firebase.currentUser();
+                this.props.firebase.user(currentUserID).once('value', (snapshot) => {
+                    let name = snapshot.val().username;
+                    this.setState({"name": name})
+                })
+            }
+        })
+    }
+
+    componentWillUnmount() {
+         this.listener();
+    }
+
     render() {
         return (
             <div className="message-content-container col-sm-9">
                 <div className="header-desktop">
-                    <h1 className="user-name-desktop">Via Nguyen</h1>
+                    <h1 className="user-name-desktop">{this.state.name}</h1>
                 </div>
                 <div className="message-container-desktop">
                     <div className="conversation-desktop" id="conversation-desktop"></div>
@@ -61,4 +83,4 @@ class MessageContentDesktop extends React.Component {
     }
 }
 
-export default MessageContentDesktop;
+export default withFirebase(MessageContentDesktop);

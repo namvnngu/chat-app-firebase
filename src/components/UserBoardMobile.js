@@ -60,7 +60,6 @@ class UserBoardMobile extends React.Component {
                 <button className="toggle-board-button-close" onClick={() => {this.toggleBoard()}}><span>&#9746;</span></button>
                 </div>
                 <button className="toggle-board-button-open" onClick={() => {this.toggleBoard()}}><span></span></button>
-                <p className="friend-name-mobile active-friend">Via Nguyen</p>
 
                 {this.state.userList.map((user, index) => (
                     <p key={index}className="friend-name">{user}</p>
