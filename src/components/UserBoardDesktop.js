@@ -17,7 +17,7 @@ class UserBoardDesktop extends React.Component {
         console.log("Hello")
         this.props.firebase.doSignOut()
             .then(() => {
-                console.log("Hello")
+                // console.log("Hello")
                 this.props.history.push('/sign-in')
             })
     }
@@ -41,7 +41,7 @@ class UserBoardDesktop extends React.Component {
                         arrayUser.push(name);
                     })
                     this.setState({"userList": arrayUser})
-                    console.log(this.state.userList)
+                    // console.log(this.state.userList)
                 })
             }
         })

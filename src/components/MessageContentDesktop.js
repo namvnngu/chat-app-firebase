@@ -2,37 +2,19 @@ import React from 'react';
 import '../css/MessageContentDesktop.css';
 // import { directive } from '@babel/types';
 import { withFirebase } from './Firebase';
+import Messages from './Messages';
 
 class MessageContentDesktop extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            value : "",
             name: null,
         };
-        this.message = "";
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-        this.setState({value: event.target.value });
-    }
-
-    handleSubmit(event) {
-        let messageArea = document.getElementById("conversation-desktop");
-        let messageInput = document.getElementById("message-input-desktop")
-        let message = this.state.value + "<br>";
-        this.message += message
-        messageArea.innerHTML = this.message;
-        messageInput.value = "";
-
-        event.preventDefault();
     }
 
     componentDidMount() {
+        // Authenticated User's Name
         this.listener = this.props.firebase.auth.onAuthStateChanged((authUser) => {
             if(authUser) {
                 
@@ -44,10 +26,12 @@ class MessageContentDesktop extends React.Component {
                 })
             }
         })
+        
     }
 
     componentWillUnmount() {
-         this.listener();
+        this.listener();
+        this.props.firebase.users().off();
     }
 
     render() {
@@ -56,31 +40,11 @@ class MessageContentDesktop extends React.Component {
                 <div className="header-desktop">
                     <h1 className="user-name-desktop">{this.state.name}</h1>
                 </div>
-                <div className="message-container-desktop">
-                    <div className="conversation-desktop" id="conversation-desktop"></div>
-                    <form 
-                        className="send-input-desktop" 
-                        onSubmit={this.handleSubmit}>
-                        <input 
-                            type="text" 
-                            placeholder="Type a message...."
-                            className="message-input-desktop"
-                            onChange={this.handleChange}
-                            id="message-input-desktop"
-                        ></input>
-                        <div className="button-group-desktop">
-                            <button className="input-area-desktop"><i className="fas fa-palette"></i></button>
-                            <input 
-                                className="send-button-desktop"
-                                type="submit"
-                                value="Send"
-                            />
-                        </div>
-                    </form>
-                </div>
+                <Messages/>
             </div>
         )
     }
 }
+
 
 export default withFirebase(MessageContentDesktop);

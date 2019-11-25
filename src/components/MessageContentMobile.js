@@ -1,6 +1,8 @@
 import React from 'react';
 import '../css/MessageContentMobile.css';
+import MessageMobile from './MessageMobile';
 import { withFirebase } from './Firebase';
+
 class MessageContentMobile extends React.Component {
     constructor(props) {
         super(props);
@@ -35,20 +37,7 @@ class MessageContentMobile extends React.Component {
                     <h1 className="user-name-mobile">{this.state.name}</h1>
                     <span className="header-button">&#9776;</span>
                 </div>
-                <div className="message-container-mobile">
-                    <div className="conversation-mobile"></div>
-                    <div className="send-input-mobile">
-                        <input 
-                            type="text" 
-                            placeholder="Type a message...."
-                            className="message-input-mobile"
-                        ></input>
-                        <div className="button-group-mobile">
-                            <button className="input-area-mobile"><i className="fas fa-palette"></i></button>
-                            <button className="send-button-mobile">Send</button>
-                        </div>
-                    </div>
-                </div>
+                <MessageMobile/>
             </div>
         )
     }

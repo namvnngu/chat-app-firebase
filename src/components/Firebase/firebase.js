@@ -36,6 +36,10 @@ class Firebase {
     user = uid => this.db.ref(`message-chat/users/${uid}`);
     users = () => this.db.ref('message-chat/users');
     currentUser = () => this.auth.currentUser.uid;
+
+    // Message API
+    message = uid => this.db.ref(`messages/${uid}`);
+    messages = () => this.db.ref('messages');
 }
 
 export default Firebase;

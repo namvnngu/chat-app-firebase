@@ -38,6 +38,7 @@
     height: calc(100% - 82px);
     background: #fff;
     margin: 10px;
+    padding: 20px;
 
     overflow-y: scroll;
     /* IE 10+ / Firefox */
@@ -48,6 +49,10 @@
 /* Safari and Chrome */
 .conversation-desktop::-webkit-scrollbar { 
     display: none;  
+}
+
+.conversation-desktop ul {
+    list-style: none;
 }
 
 

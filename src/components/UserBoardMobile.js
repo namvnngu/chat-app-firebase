@@ -44,7 +44,7 @@ class UserBoardMobile extends React.Component {
                 arrayUser.push(name);
             })
             this.setState({"userList": arrayUser})
-            console.log(this.state.userList)
+            // console.log(this.state.userList)
         })
             
     }
