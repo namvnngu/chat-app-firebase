@@ -30,23 +30,30 @@ class UserBoardMobile extends React.Component {
 
     componentDidMount() {
         // Current User
-        let currentUserID = this.props.firebase.currentUser();
-        this.props.firebase.user(currentUserID).once('value', (snapshot) => {
-            let name = snapshot.val().username;
-            this.setState({"name": name})
+        this.listener = this.props.firebase.auth.onAuthStateChanged((authUser) => {
+            if(authUser) {
+                let currentUserID = this.props.firebase.currentUser();
+                this.props.firebase.user(currentUserID).once('value', (snapshot) => {
+                    let name = snapshot.val().username;
+                    this.setState({"name": name})
+                })
+        
+                // User List
+                this.props.firebase.users().once('value', (snapshot) => {
+                    let arrayUser = []
+                    snapshot.forEach((childSnapshot) => {
+                        let name = childSnapshot.val().username;
+                        arrayUser.push(name);
+                    })
+                    this.setState({"userList": arrayUser})
+                    // console.log(this.state.userList)
+                })
+            }
         })
+    }
 
-        // User List
-        this.props.firebase.users().once('value', (snapshot) => {
-            let arrayUser = []
-            snapshot.forEach((childSnapshot) => {
-                let name = childSnapshot.val().username;
-                arrayUser.push(name);
-            })
-            this.setState({"userList": arrayUser})
-            // console.log(this.state.userList)
-        })
-            
+    componentWillUnmount() {
+        this.listener();
     }
     
     render() {
